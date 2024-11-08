@@ -1,0 +1,43 @@
+---
+title: "PS2-feedback"
+format: html
+editor: visual
+---
+
+## PS 2 Feedback
+I'd like to see more commentary on your .qmd file. For example, after you examine the data with `str()` and `glimpse()` I'd like to know what you learned by doing so. You might write "My data consist of 49 rows and 7 variables. Two variables should probabaly be factor, one character and the rest numeric" or something. You might also note any observations you make just by looking at the data.
+
+On line 37,  you indicate that you are going to make `costume` into a factor. You didn't end up doing that (which was the correct choice) but you should make sure your commentary matches your code.
+
+Think of the `.qmd` as the record - if you came back to this project in a year, and only had the `.qmd` and not the assignment handout, would you know what is going on?
+
+I'm glad that on line 66 you re-ran `levels()` to make sure that your fix worked!
+
+You didn't do any error checking on the numeric variables.
+
+A suggestion for your code. Use spacing to help improve readability. YOu are doing pretty well at this, but in this example from your lines 117 - 123 you have:
+
+```{r}
+halloween |>
+  group_by(sugar_high) |>
+  summarize(mean_age = mean(age), sd_age = sd(age),
+            mean_grams = mean(g_candy_consumed), sd_grams = sd(g_candy_consumed)) |>
+  View()
+```
+
+And if you break up that `summarise()` a bit more like this:
+
+```{r}
+halloween |>
+  group_by(sugar_high) |>
+  summarize(
+    mean_age = mean(age), 
+    sd_age = sd(age),
+    mean_grams = mean(g_candy_consumed), 
+    sd_grams = sd(g_candy_consumed)) |>
+  View()
+```
+ 
+The code is exactly the same but it is easier to read in the second version.
+
+Overall though, nice job!
